@@ -3,10 +3,11 @@ option = 1
         file = File.open('average.csv', 'r')
         data = file.readlines
         file.close
-        i = 0
-        data.each do |student|
-        print data = student.split(' ').map{|e| e.chomp}
+        i = 1
+        data[i].each do |student|
+        print data = student.split(' ').map{|e| e.chomp}.to_i
         print data if data.last >= 5.0
+        i +=1
       end
     end
 while option < 4 && option >= 0
@@ -27,19 +28,19 @@ while option < 4 && option >= 0
       data = file.readlines
       file.close
 
-
       prom = 0
       i = 0
       large = 0
       sum = 0
-      puts data.class
+      
     #  while i < data.length do
       data.each_slice(6) do |slices|
 
-        slices = slices.map { |o| o.chomp.split(', ') }
+        data = data.map { |o| o.chomp.split(', ') }
+        print data
         slices.each do |er|
-
-          print er.to_i
+          
+         
         end
         print sum = slices.inject(0){ |acc, el| acc + el[i].to_i }
         i += 1
@@ -49,11 +50,11 @@ while option < 4 && option >= 0
         puts prom = sum / large.to_f
         j = 0
 
-        file1 = File.open('averagedd.csv', 'w')
+        file = File.open('averagedd.csv', 'w')
         while j < data.length do
-          file1.puts("la suma es #{sum} y el largoo es #{large}")
-          file1.puts("los datos #{data[0][j]} #{prom}")
-          file1.puts
+          file.puts("la suma es #{sum} y el largoo es #{large}")
+          file.puts("los datos #{data[0][j]} #{prom}")
+          file.puts
           j += 1
         end
          
