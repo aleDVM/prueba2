@@ -50,7 +50,7 @@ while option < 4 && option >= 0
         puts prom = sum / large.to_f
         j = 0
 
-        file = File.open('averagedd.csv', 'w')
+        file = File.open('average.csv', 'w')
         while j < data.length do
           file.puts("la suma es #{sum} y el largoo es #{large}")
           file.puts("los datos #{data[0][j]} #{prom}")
